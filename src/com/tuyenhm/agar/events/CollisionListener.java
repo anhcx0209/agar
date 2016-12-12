@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tuyenhm.agar.model;
+package com.tuyenhm.agar.events;
 
 /**
  *
  * @author tuyenhuynh
  */
-public class GameModel {
-    
+public interface CollisionListener {
+    public void collided(); 
+    public void gameFinished(); 
 }
