@@ -21,18 +21,18 @@ public class Controller {
         this.sprite = sprite; 
     }
     
-    public void update(long elapsedTime){
-        if(sprite.getX() <= 0 && sprite.getHorizontalSpeed() < 0) {
+    public void update(long elapsedTime){        
+        if(sprite.getX() <= 0 && sprite.getHorizontalSpeed() < 0) {            
             sprite.setHorizontalSpeed(0);
         }
-        if(sprite.getX() + sprite.getWidth() > game.TOTAL_WIDTH && sprite.getHorizontalSpeed() >0) {
+        if(sprite.getX() + sprite.getWidth() > game.TOTAL_WIDTH && sprite.getHorizontalSpeed() >0) {            
             sprite.setHorizontalSpeed(0);
         }
-        if(sprite.getY() <= 0 && sprite.getVerticalSpeed() < 0) {
+        if(sprite.getY() <= 0 && sprite.getVerticalSpeed() < 0) {            
             sprite.setVerticalSpeed(0);
         }
-        if(sprite.getY() + sprite.getWidth() > game.TOTAL_HEIGHT && sprite.getVerticalSpeed() >0) {
+        if(sprite.getY() + sprite.getWidth() > game.TOTAL_HEIGHT && sprite.getVerticalSpeed() >0) {                       
             sprite.setVerticalSpeed(0);
-        }
+        }       
     }   
 }

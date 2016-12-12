@@ -33,6 +33,8 @@ public class AIController extends Controller{
     
     @Override
     public void update(long elapsedTime) {
+        
+        
         Point playerPos = playerSprite.getPosition(); 
         Point spritePos = sprite.getPosition(); 
         

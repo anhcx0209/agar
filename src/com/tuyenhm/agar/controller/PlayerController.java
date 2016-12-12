@@ -21,7 +21,9 @@ public class PlayerController extends Controller{
     }
     
     public void update(long elapsedTime) {
-        int angle = GameMath.angle(sprite.getPosition(), game.mousePosition());
-        sprite.setDirection(angle);
+        if (!sprite.speedUp()) { // only control when is not speed up mod             
+            int angle = GameMath.angle(sprite.getPosition(), game.mousePosition());
+            sprite.setDirection(angle);                      
+        }
     }
 }

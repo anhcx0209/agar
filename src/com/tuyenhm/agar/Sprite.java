@@ -37,9 +37,20 @@ public class Sprite extends com.golden.gamedev.object.Sprite{
     
     private boolean isBot;
     
+    private boolean isSpeedUp;
+    
     public Sprite(int size, boolean isBot) {
         this.size = size; 
         this.isBot = isBot; 
+        this.isSpeedUp = false;
+    }
+    
+    public boolean speedUp() {
+        return this.isSpeedUp;        
+    }
+    
+    public void setSpeedUp(boolean var) {
+        this.isSpeedUp = var;        
     }
     
     public boolean isBot() {

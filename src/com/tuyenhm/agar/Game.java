@@ -10,6 +10,7 @@ import com.tuyenhm.agar.collision.PlayerToPlayerCollision;
 import com.golden.gamedev.object.SpriteGroup;
 import com.golden.gamedev.object.Timer;
 import com.golden.gamedev.object.background.ImageBackground;
+import com.sun.glass.events.KeyEvent;
 import com.tuyenhm.agar.collision.PlayerToAgarCollision;
 import com.tuyenhm.agar.collision.PlayerToObstacleCollision;
 import com.tuyenhm.agar.controller.AIController;
@@ -53,11 +54,19 @@ public class Game extends com.golden.gamedev.GameObject{
     
     private static final int OBSTACLE_COUNT =  30; 
     
+    private static final double BASE_SPEED = 0.1;
+    
+    private static final int SPEED_UP_TIME = 2000; // 2s for test
+    
+    private static final int BASE_SPEED_UP = 4;
+    
     private Color[] colors = new Color[]{Color.BLUE, Color.GREEN, Color.GRAY, 
         Color.CYAN, Color.ORANGE, Color.PINK, Color.YELLOW, Color.MAGENTA, 
         Color.WHITE}; 
     
     private Timer timer = new Timer(AGAR_GEN_INTERVAL); 
+    
+    private Timer aclTimer = new Timer(SPEED_UP_TIME);
     
     private Random random = new Random(); 
     
@@ -90,12 +99,13 @@ public class Game extends com.golden.gamedev.GameObject{
     @Override
     public void initResources() {
         try{
+            aclTimer.setActive(false);
             
             BufferedImage playerImage = ImageIO.read(new File("resources/PRIMITIVE_PLANT.png"));
             BufferedImage botImage = ImageIO.read(new File("resources/PRIMITIVE_ANIMAL.png"));
             
             playerSprite = new Sprite(100, false); 
-            playerSprite.setSpeed(0.1);
+            playerSprite.setSpeed(BASE_SPEED);
             playerSprite.setColor(Color.RED);
             playerSprite.setIcon(playerImage);
             playerSprite.setPosition(new Point(320, 240));
@@ -234,7 +244,7 @@ public class Game extends com.golden.gamedev.GameObject{
             }
         }
         
-        botSprite.setSpeed(0.1);
+        botSprite.setSpeed(BASE_SPEED);
         botSprite.setColor(Color.GREEN);
         botSprite.setIcon(botImage);
         spriteGroup.add(botSprite);
@@ -259,6 +269,20 @@ public class Game extends com.golden.gamedev.GameObject{
         obstacleGroup.update(elapsedTime);
         
         background.update(elapsedTime);
+        
+        if (keyPressed(KeyEvent.VK_SPACE)) {
+            System.out.print("Speed up\n");           
+            playerSprite.setSpeed(BASE_SPEED * BASE_SPEED_UP);
+            aclTimer.setActive(true);
+            playerSprite.setSpeedUp(true);
+        }
+        
+        if (aclTimer.action(elapsedTime)) {
+            System.out.print("Speed up end\n");
+            aclTimer.setActive(false);
+            playerSprite.setSpeedUp(false);
+            playerSprite.setSpeed(BASE_SPEED);
+        }
         
         if(timer.action(elapsedTime)){
             if(agarList.size() < MAX_AGAR_COUNT) { 
