@@ -79,7 +79,7 @@ public class Game extends com.golden.gamedev.GameObject{
     
     private final SpriteGroup  obstacleGroup = new SpriteGroup("Obstacles"); 
     
-    private Sprite playerSprite; 
+    private Sprite playerSprite, AlliedSprite; 
     
     private final List<Controller> controllers = new ArrayList<>(); 
     
@@ -93,8 +93,10 @@ public class Game extends com.golden.gamedev.GameObject{
     
     private final List<Sprite> spriteList = new ArrayList<>(); 
     
-    public Game(GameEngine gameEngine) {
+    private boolean allies;
+    public Game(GameEngine gameEngine,boolean allies) {
         super(gameEngine); 
+        this.allies=allies;
     }
     
     @Override
@@ -105,18 +107,29 @@ public class Game extends com.golden.gamedev.GameObject{
             BufferedImage playerImage = ImageIO.read(new File("resources/PRIMITIVE_PLANT.png"));
             BufferedImage botImage = ImageIO.read(new File("resources/PRIMITIVE_ANIMAL.png"));
             
-            playerSprite = new Sprite(100, false); 
-            playerSprite.setSpeed(BASE_SPEED);
+            playerSprite = new Sprite(100, false,false); 
+            playerSprite.setSpeed(0.1);
+
             playerSprite.setColor(Color.RED);
             playerSprite.setIcon(playerImage);
             playerSprite.setPosition(new Point(320, 240));
             spriteGroup.add(playerSprite);
-            
             spriteList.add(playerSprite); 
             
+            if (allies){
+                AlliedSprite = new Sprite(100, false,true); 
+                AlliedSprite.setSpeed(0.1);
+                AlliedSprite.setColor(Color.RED);
+                AlliedSprite.setIcon(playerImage);
+                AlliedSprite.setPosition(new Point(400, 400));
+
+                spriteGroup.add(AlliedSprite);
+                controllers.add(new AIController(this, AlliedSprite, playerSprite));
+                spriteList.add(AlliedSprite); 
+            }
             //generate AI bots
             Random r = new Random();
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < 10; i++)
             {
                 boolean added = true; 
                 do {
@@ -174,7 +187,7 @@ public class Game extends com.golden.gamedev.GameObject{
                 
                 @Override
                 public void gameFinished() {
-                    parent.nextGameID = 1;
+                    parent.nextGameID = 0;
                     finish();
                 }
             });
@@ -225,7 +238,7 @@ public class Game extends com.golden.gamedev.GameObject{
     }
     
     private boolean addNewBot(BufferedImage botImage, Point position){
-        Sprite botSprite = new Sprite(botImage.getHeight(), true);
+        Sprite botSprite = new Sprite(botImage.getHeight(), true,false);
         botSprite.setPosition(position);
         for(Sprite sprite : spriteList){
             if(sprite.isActive() && isOverlapped(sprite, botSprite)){

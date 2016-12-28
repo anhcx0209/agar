@@ -12,14 +12,18 @@ import com.golden.gamedev.GameObject;
  *
  * @author tuyenhuynh
  */
-public class AgarGame extends GameEngine {    
-    
+public class AgarGame extends GameEngine {        
     public GameObject getGame(int GameID) {
+       start();
        switch (GameID) {
-          case 0: 
-            return new Game(this);
+          case 0:
+              return new GameMenu(this);
           case 1: 
-            return new GameFinishScreen(this);          
+             return new Game(this,false);
+          case 2:
+              return new Game(this,true);
+          case 3: 
+             return new GameFinishScreen(this);             
        }
        return null;
     }
