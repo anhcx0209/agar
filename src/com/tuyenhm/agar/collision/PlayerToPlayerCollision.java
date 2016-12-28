@@ -31,6 +31,7 @@ public class PlayerToPlayerCollision extends BasicCollisionGroup{
         com.tuyenhm.agar.Sprite customSprite1 = (com.tuyenhm.agar.Sprite)(sprite1); 
         com.tuyenhm.agar.Sprite customSprite2 = (com.tuyenhm.agar.Sprite)(sprite2); 
         
+        if (!(!customSprite1.isBot()&&!customSprite2.isBot())){
         Point p1 = customSprite1.getPosition(), 
                     p2 = customSprite2.getPosition();
            
@@ -40,23 +41,33 @@ public class PlayerToPlayerCollision extends BasicCollisionGroup{
         int size1 = customSprite1.getVictimCount(), 
                 size2 = customSprite2.getVictimCount(); 
         
-        if(size2 > size1 && GameMath.distance(c1, c2) < customSprite2.getSize()/2) {
-            customSprite2.eat(customSprite1.getVictimCount());
-            customSprite1.setActive(false);
-            if(customSprite1.isBot()) {
-                listener.collided();
-            }else {
-                listener.gameFinished(); 
+        if(size2 >= size1 && GameMath.distance(c1, c2) < customSprite2.getSize()/2) {
+            if ((size2==size1&&customSprite2.isAllied())||size2>size1){
+                customSprite2.eat(customSprite1.getVictimCount());
+                customSprite1.setActive(false);
+
+                if(customSprite1.isBot()) {
+                    listener.collided();
+                }else {
+                    listener.collided();
+                    if (!customSprite1.isAllied())
+                        listener.gameFinished(); 
+                }
             }
         }
         if(size1 > size2 && GameMath.distance(c1, c2) < customSprite1.getSize()/2) {
-            customSprite1.eat(customSprite2.getVictimCount());
-            customSprite2.setActive(false);
-            if(customSprite2.isBot()) {
-                listener.collided();
-            }else {
-                listener.gameFinished(); 
+            if ((size1==size2&&customSprite1.isAllied())||size1>size2){
+                customSprite1.eat(customSprite2.getVictimCount());
+                customSprite2.setActive(false);
+                if(customSprite2.isBot()) {
+                    listener.collided();
+                }else {
+                   listener.collided();
+                    if (!customSprite2.isAllied())
+                        listener.gameFinished(); 
+                }
             }
         }
+    }
     }
 }

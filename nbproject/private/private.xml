@@ -3,11 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/dungdunght/Downloads/agar.io/src/com/tuyenhm/agar/Sprite.java</file>
-            <file>file:/Users/dungdunght/Downloads/agar.io/src/com/tuyenhm/agar/Main.java</file>
-            <file>file:/Users/dungdunght/Downloads/agar.io/src/com/tuyenhm/agar/GameFinishScreen.java</file>
-            <file>file:/Users/dungdunght/Downloads/agar.io/src/com/tuyenhm/agar/Game.java</file>
-            <file>file:/Users/dungdunght/Downloads/agar.io/src/com/tuyenhm/agar/AgarGame.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/GameMenu.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/AgarGame.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/collision/PlayerToPlayerCollision.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/model/GameModel.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/controller/AIController.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/events/CollisionListener.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/controller/PlayerController.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/view/PlayerView.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/collision/PlayerToAgarCollision.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/collision/PlayerToObstacleCollision.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/GameMath.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/controller/Controller.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/GameFinishScreen.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/Main.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/Agar.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/Obstacle.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/view/AiView.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/Game.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/Sprite.java</file>
+            <file>file:/Users/dungdunght/Desktop/Study/Мамонтов%20Конструкция/labTuyen/src/com/tuyenhm/agar/view/GameView.java</file>
         </group>
     </open-files>
 </project-private>

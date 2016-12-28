@@ -52,6 +52,7 @@ public class GameFinishScreen extends GameObject { // change Game to GameObject
         gd.setFont(new Font("Arial", Font.BOLD, 20));
         gd.setColor(Color.RED);
         gd.drawString("CLICK INTO SCREEN TO START NEW GAME" , 170,300 );
+        
     }
 
  }

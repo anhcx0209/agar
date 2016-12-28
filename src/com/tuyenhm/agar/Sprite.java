@@ -37,23 +37,34 @@ public class Sprite extends com.golden.gamedev.object.Sprite{
     
     private boolean isBot;
     
-    public Sprite(int size, boolean isBot) {
+    private boolean isAllied;
+    
+    public Sprite(int size, boolean isBot, boolean isAllied) {
         this.size = size; 
         this.isBot = isBot; 
+        this.isAllied=isAllied;
     }
     
     public boolean isBot() {
         return this.isBot;
     }
+    public boolean isAllied(){
+        return this.isAllied;
+    }
     
     public void eat(){
-        this.setSize(this.getSize() + 5);
-        victimCount +=  1;
+        if (this.getSize()<150){
+            this.setSize(this.getSize() + 5);
+            victimCount +=  1;
+        }
     }
     
     public void eat(int bonus){
-        this.setSize(this.getSize() + bonus*5);
-        victimCount +=  bonus;
+        if (this.getSize()<150)
+        {
+            this.setSize(this.getSize() + bonus*5);
+            victimCount +=  bonus;
+        }
     }
     
     public int getVictimCount(){
