@@ -38,6 +38,7 @@ import javax.imageio.ImageIO;
 public class Game extends com.golden.gamedev.GameObject{
 
     public static final int TOTAL_WIDTH = 6000; 
+    
     public static final int TOTAL_HEIGHT = 6000;
     
     private static final int MAX_AGAR_COUNT = 500; 
@@ -256,7 +257,7 @@ public class Game extends com.golden.gamedev.GameObject{
     }
 
     @Override
-    public void update(long elapsedTime) {
+    public void update(long elapsedTime) {        
         playerAgarCm.checkCollision();
         playerObstacleCm.checkCollision();
         playerPlayerCm.checkCollision();
