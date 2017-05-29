@@ -1,2 +1,9 @@
 build 
 lib 
+/dist/
+/lib-agar-gdx/dist/
+/lib-agar-gdx/nbproject/private/
+/iterations/lib-agar-gdx/dist/
+/iterations/lib-agar-gdx/nbproject/private/
+/iterations/lib-agar-gtge/dist/
+/iterations/lib-agar-gtge/nbproject/private/
